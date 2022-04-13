@@ -96,6 +96,6 @@ def drawstuff():
     epd.display(out)
     epd.close()
 
-def main()
+def main():
     get_chem(1, 10000)
     image_processing("chem.png")
