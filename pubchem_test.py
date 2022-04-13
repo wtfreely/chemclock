@@ -1,27 +1,7 @@
-"""
-
-Thanks to Rob Weber for making omni-epd.
-It sure made dealing with this a lot easier.
-
-"""
-import os
-import sys
 import pubchempy as pcp
-from omni_epd import displayfactory, EPDNotFoundError
-from PIL import Image, ImageDraw, ImageFont
-
-"""
-
-Be sure to include omni-epd.ini in local folder,
-as it is critical for adjusting rotation and other post-processing.
-
-"""
-
-try:
-    epd = displayfactory.load_display_driver()
-except EPDNotFoundError:
-    print("Couldn't find your display")
-    sys.exit()
+from PIL import Image, ImageDraw, ImageFont, ImageChops, ImageOps
+import random
+import numpy as np
 
 """
 Here's the logic:
@@ -82,20 +62,11 @@ def image_processing(image):
     res = img.crop(bbox)
     res.save('processed.png', 'png')
 
-#### let's leave the drawing shit alone for a sec
+get_chem(1, 10000)
+image_processing("chem.png")
 
-def drawstuff():
-    out =  Image.new("L", (1, 1), (255, 255, 255))
-    font = ImageFont.truetype("/usr/share/fonts/truetype/freefont/FreeMono.ttf", 40)
-    d = ImageDraw.Draw(out)
-    d.multiline_text((10, 10), "Hello\nWorld", font=font, fill=(0, 0, 0))
-    epd.width(480)
-    epd.height(800)
-    out.rotate(90)
-    epd.prepare()
-    epd.display(out)
-    epd.close()
 
-def main()
-    get_chem(1, 10000)
-    image_processing("chem.png")
+
+
+
+
