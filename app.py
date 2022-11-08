@@ -61,7 +61,7 @@ def rectangle(x, y, radius, rgb):
     draw.rounded_rectangle((0, x, 0, y), fill=rgb, outline=None, width=1, radius=radius)
     return image
 
-def drawstuff(name):
+def drawstuff(molecule):
 
     """
     Let's make a white background, add some black bars for status stuff,
@@ -80,11 +80,12 @@ def drawstuff(name):
 
     SUB = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
 
-    molecule_formula = name[0].translate(SUB)
-    molecule_name = name[1]
-    molecule_synonyms = name[2]
-    molecule_weight = name[3]
-    molecule_complexity = name[4]
+    molecule_formula = molecule[1].translate(SUB)
+    molecule_name = molecule[2]
+    molecule_synonyms = molecule[3]
+    molecule_weight = molecule[4]
+    molecule_complexity = molecule[5]
+    molecule_img = r"img/" + str(molecule[0]) + r".png"
 
     ### Let's make out background just a nice, white rectangle
     ### And define our fonts :)
@@ -113,9 +114,9 @@ def drawstuff(name):
 
     ### Now let's draw the chemical structure
 
-    with Image.open("processed.png") as chemical:
+    with Image.open(molecule_img) as chemical:
         width, height = chemical.size
-        chemical = Image.open("processed.png")
+        chemical = Image.open(molecule_img)
 
     chemical_border = 50
     chemical_bg = rectangle(width + chemical_border, height + chemical_border, chemical_border, "black")
@@ -152,8 +153,7 @@ def drawstuff(name):
 
 def main():
     print("Running main()  ")
-
-    
+    molecule = get_molecule()
     drawstuff(molecule)
 
 if __name__ == '__main__':
