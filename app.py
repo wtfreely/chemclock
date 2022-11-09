@@ -155,6 +155,7 @@ def drawstuff(molecule):
 def main():
     print("Running main()  ")
     molecule = get_molecule()
+    type(molecule)
     print(molecule)
     print(type(molecule))
     drawstuff(molecule)
