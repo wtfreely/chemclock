@@ -9,6 +9,7 @@ import os
 import sys
 import datetime
 import locale
+import random
 locale.setlocale(locale.LC_ALL, 'fr_FR.UTF-8')
 today = datetime.date.today()
 from omni_epd import displayfactory, EPDNotFoundError
@@ -47,8 +48,8 @@ Let's get the length of the dataframe (number of rows) and query a random row be
 """
 
 def get_molecule():
-    df_feather_loc = r"df.ftr"
-    df = pd.read_feather(df_feather_loc)
+    df_pickle_loc = r"df.pkl"
+    df = pd.read_pickle(df_pickle_loc)
     max = len(df)
     index = random.randint(0, max)
     molecule = df.iloc[index]
