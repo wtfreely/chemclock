@@ -23,7 +23,7 @@ as it is critical for adjusting rotation and other post-processing.
 """
 
 try:
-    epd = displayfactory.load_display_driver()
+    epd = displayfactory.load_display_driver("waveshare_epd.epd7in5_V2")
 except EPDNotFoundError:
     print("Couldn't find your display")
     sys.exit()
