@@ -48,7 +48,7 @@ Let's get the length of the dataframe (number of rows) and query a random row be
 """
 
 def get_molecule():
-    df_pickle_loc = r"df.pkl"
+    df_pickle_loc = r"/home/chemcal/chemcal/df.pkl"
     df = pd.read_pickle(df_pickle_loc)
     max = len(df)
     index = random.randint(0, max)
@@ -86,7 +86,7 @@ def drawstuff(molecule):
     molecule_synonyms = molecule["synonyms"]
     molecule_weight = molecule["weight"]
     molecule_complexity = molecule["complexity"]
-    molecule_img = r"img/" + str(round(molecule["id"])) + r".png"
+    molecule_img = r"/home/chemcal/chemcal/img/" + str(round(molecule["id"])) + r".png"
 
     ### Let's make out background just a nice, white rectangle
     ### And define our fonts :)
