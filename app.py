@@ -80,12 +80,12 @@ def drawstuff(molecule):
 
     SUB = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
 
-    molecule_formula = molecule[1].translate(SUB)
-    molecule_name = molecule[2]
-    molecule_synonyms = molecule[3]
-    molecule_weight = molecule[4]
-    molecule_complexity = molecule[5]
-    molecule_img = r"img/" + str(molecule[0]) + r".png"
+    molecule_formula = molecule[formula].translate(SUB)
+    molecule_name = molecule[name]
+    molecule_synonyms = molecule[synonyms]
+    molecule_weight = molecule[weight]
+    molecule_complexity = molecule[complexity]
+    molecule_img = r"img/" + str(round(molecule[id])) + r".png"
 
     ### Let's make out background just a nice, white rectangle
     ### And define our fonts :)
